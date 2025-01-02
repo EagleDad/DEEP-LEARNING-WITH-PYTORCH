@@ -79,7 +79,7 @@ class Trainer:  # pylint: disable=too-many-instance-attributes
         self.hooks = {}
         self.visualizer = visualizer
         self.get_key_metric = get_key_metric
-        self.metrics = {"epoch": [], "train_loss": [], "test_loss": [], "test_metric": []}
+        self.metrics = {"epoch": [], "train_loss": [], "test_loss": [], "test_metric": [], "learning_rate": []}
         self._register_default_hooks()
 
     def fit(self, epochs):
@@ -130,9 +130,11 @@ class Trainer:  # pylint: disable=too-many-instance-attributes
                 else:
                     self.lr_scheduler.step()
 
+            self.metrics['learning_rate'].append(self.optimizer.param_groups[0]['lr'])
+
             if self.hooks["end_epoch"] is not None:
                 self.hooks["end_epoch"](iterator, epoch, output_train, output_test)
-
+              
             if self.model_save_best:
                 best_acc = max([self.get_key_metric(item) for item in self.metrics['test_metric']])
                 current_acc = self.get_key_metric(output_test['metric'])
