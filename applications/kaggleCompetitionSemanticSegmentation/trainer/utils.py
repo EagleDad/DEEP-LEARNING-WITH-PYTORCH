@@ -34,22 +34,33 @@ def download_git_folder(git_url, src_folder, dst_folder):
     shutil.rmtree(tmp)
 
 
-def init_semantic_segmentation_dataset(data_path, imgs_folder="train", masks_folder="trainannot"):
+def init_semantic_segmentation_dataset(data_path, image_ids, imgs_folder="train", masks_folder="trainannot"):
     """ Prepare Semantic Segmentation dataset
 
     Arguments:
         data_path (string): path to dataset.
+        image_ids ( list ): the ids to use for the data
         imgs_folder (string): path to images (related of the data_path).
         masks_folder (string): path to masks (related of the data_path).
 
     Initialise dataset as a list of pairs {"image": <path_to_image>, "mask": <path_to_mask>}.
     """
-    names = os.listdir(os.path.join(data_path, imgs_folder))
+    #names = os.listdir(os.path.join(data_path, imgs_folder))
+    #dataset = []
+    #for name in names:
+    #    dataset.append({
+    #        "image": os.path.join(data_path, imgs_folder, name),
+    #        "mask": os.path.join(data_path, masks_folder, name),
+    #        "id": os.path.basename(name).split('.')[0]
+    #    })
+    #return dataset
+
     dataset = []
-    for name in names:
+    for name in image_ids:
         dataset.append({
-            "image": os.path.join(data_path, imgs_folder, name),
-            "mask": os.path.join(data_path, masks_folder, name)
+            "image": os.path.join(data_path, imgs_folder, name + '.jpg'),
+            "mask": os.path.join(data_path, masks_folder, name + '.png'),
+            "id": name
         })
     return dataset
 
