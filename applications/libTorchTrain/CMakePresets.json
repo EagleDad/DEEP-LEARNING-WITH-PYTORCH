@@ -16,6 +16,7 @@
                 "CMAKE_CXX_COMPILER": "cl.exe",
                 "TORCH_LIBRARY": "C:/3rdParties/libtorch/share/cmake/Torch",
                 "Torch_DIR": "C:/3rdParties/libtorch/share/cmake/Torch",
+                "OpenCV_DIR": "C:/3rdParties/opencv/sources/build/install",
                 "MKL_DIR": "C:/Program Files (x86)/Intel/oneAPI/mkl/2021.3.0/lib/cmake/mkl",
                 "CMAKE_CXX_STANDARD": "17"
             }
@@ -35,6 +36,7 @@
                 "CMAKE_CXX_COMPILER": "cl.exe",
                 "TORCH_LIBRARY": "C:/3rdParties/libtorch/share/cmake/Torch",
                 "Torch_DIR": "C:/3rdParties/libtorch/share/cmake/Torch",
+                "OpenCV_DIR": "C:/3rdParties/opencv/sources/build/install",
                 "MKL_DIR": "C:/Program Files (x86)/Intel/oneAPI/mkl/2021.3.0/lib/cmake/mkl",
                 "CMAKE_CXX_STANDARD": "17"
             }
