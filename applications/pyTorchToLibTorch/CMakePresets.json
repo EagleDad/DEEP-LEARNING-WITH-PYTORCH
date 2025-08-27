@@ -1,0 +1,58 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "msvc-release",
+            "displayName": "Visual Studio Build Tools 2022 Release - amd64",
+            "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
+            "generator": "Visual Studio 17 2022",
+            "toolset": "host=x64",
+            "architecture": "x64",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe",
+                "TORCH_LIBRARY": "C:/Users/adlerd/repos/libTorchTest/libtorch-win-shared-with-deps-latest/libtorch/share/cmake/Torch",
+                "Torch_DIR": "C:/Users/adlerd/repos/libTorchTest/libtorch-win-shared-with-deps-latest/libtorch/share/cmake/Torch",
+                "MKL_DIR": "C:/Program Files (x86)/Intel/oneAPI/mkl/2021.3.0/lib/cmake/mkl",
+                "CMAKE_CXX_STANDARD": "17"
+            }
+        },
+        {
+            "name": "msvc-debug",
+            "displayName": "Visual Studio Build Tools 2022 Debug - amd64",
+            "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
+            "generator": "Visual Studio 17 2022",
+            "toolset": "host=x64",
+            "architecture": "x64",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe",
+                "TORCH_LIBRARY": "C:/Users/adlerd/repos/libTorchTest/libtorch-win-shared-with-deps-latest/libtorch/share/cmake/Torch",
+                "Torch_DIR": "C:/Users/adlerd/repos/libTorchTest/libtorch-win-shared-with-deps-latest/libtorch/share/cmake/Torch",
+                "MKL_DIR": "C:/Program Files (x86)/Intel/oneAPI/mkl/2021.3.0/lib/cmake/mkl",
+                "CMAKE_CXX_STANDARD": "17"
+            }
+        }
+    ],
+    
+    "buildPresets": [
+        {
+            "name": "msvc-release",
+            "displayName": "Visual Studio Build Tools 2022 Release - amd64 - Release",
+            "configurePreset": "msvc-release",
+            "configuration": "Release"
+        },
+        {
+            "name": "msvc-debug",
+            "displayName": "Visual Studio Build Tools 2022 Release - amd64 - Debug",
+            "configurePreset": "msvc-debug",
+            "configuration": "Debug"
+        }
+    ]
+}
